@@ -1,0 +1,8 @@
+<ul>
+    <%myPhc.forEach((phc, idx) => { %>
+
+        <a href="/prehistoric_creatures/<%= idx %>">
+        <li><%= phc.name %> is a <%= phc.type %></li>
+    </a>
+    <%})%>
+</ul>
