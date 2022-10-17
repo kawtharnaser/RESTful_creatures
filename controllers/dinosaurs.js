@@ -4,9 +4,18 @@ const fs = require('fs')
 const { stringify } = require('querystring')
 
 router.get('/', (req, res)=>{
+    //pull in JSON data
     let dinosaurs = fs.readFileSync('./dinosaurs.json')
+    // turns the JSON data into a JS object
     let dinoData = JSON.parse(dinosaurs)
-    console.log(dinoData)
+    let nameFilter = req.query.nameFilter
+    console.log(nameFilter)
+    //if the user searched for something
+    if(nameFilter){
+        dinoData = dinoData.filter(dino=>{
+            return dino.name.toLowerCase()=== nameFilter.toLowerCase()
+    })
+}
     res.render('dinosaurs/index', {myDinos: dinoData})
 })
 
