@@ -25,8 +25,13 @@ router.get('/:idx', (req, res)=>{
 
 router.post('/', (req, res)=>{
     console.log('This is the req body', req.body)
+    let prehistoric_creatures = fs.readFileSync('./prehistoric_creatures.json')
+    let phcData = JSON.parse(prehistoric_creatures)
+    phcData.push(req.body)
+    fs.writeFileSync('./prehistoric_creatures.json', JSON.stringify(phcData))
     res.redirect('/prehistoric_creatures')
 })
+
 
 
 module.exports = router
