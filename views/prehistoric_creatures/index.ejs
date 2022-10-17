@@ -2,7 +2,20 @@
     <%myPhc.forEach((phc, idx) => { %>
 
         <a href="/prehistoric_creatures/<%= idx %>">
-        <li><%= phc.name %> is a <%= phc.type %></li>
+        <li><%= phc.type %></li>
+        <a href="/prehistoric_creatures/edit/<%= idx %>">Edit</a>
+        <form method="POST" action="/prehistoric_creatures/<%= idx %>?_method=DELETE">
+        <input type="submit"
+        value="Delete Creature">
+        </form>
     </a>
     <%})%>
 </ul>
+
+
+<ul>
+
+
+
+
+

@@ -1,0 +1,16 @@
+<form method="POST" action="/prehistoric_creatures/<%= phcId %>/?_method=PUT">
+   
+   
+
+
+
+    <label for="type">Type</label>
+    <input type="text" name="type"value="<%= phc.type %>">
+
+    <label for="img_url">Img</label>
+    <input type="text" name="img_url" value="<%= phc.img_url %>">
+
+    <input type="submit" value="Update Creature!">
+</form>
+
+
